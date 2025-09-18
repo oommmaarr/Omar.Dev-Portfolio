@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       className={`
         ${geistSans.variable} ${geistMono.variable} antialiased
         bg-gradient-to-tr from-black via-[#973e18] to-black
-        bg-no-repeat bg-cover bg-fixed
+        bg-no-repeat bg-cover
       `}
     >
       <Navbar />
