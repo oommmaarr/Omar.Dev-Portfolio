@@ -127,7 +127,7 @@ export default function ShowSkills() {
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              className="group flex flex-col items-center  justify-center md:p-6 p-4 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-all duration-300 cursor-pointer border border-gray-700/50"
+              className="group flex flex-col md:mb-0  mb-3 items-center  justify-center md:p-6 p-4 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-all duration-300 cursor-pointer border border-gray-700/50"
               variants={skillVariants}
               whileHover={{
                 scale: 1.05,
