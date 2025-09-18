@@ -143,9 +143,9 @@ const TextType = ({
 
   return createElement(Component, {
     ref: containerRef,
-    className: `inline-block whitespace-pre-wrap tracking-tight  ${className}`,
+    className: `md:inline   whitespace-pre-wrap tracking-tight  ${className}`,
     ...props
-  }, <span className="inline text-3xl ml-3" style={{ color: getCurrentTextColor() }}>
+  }, <span className="md:inline xl:text-3xl lg:text-xl ml-3" style={{ color: getCurrentTextColor() }}>
     {displayedText}
   </span> 
 

@@ -76,14 +76,14 @@ export default function Hero() {
             Hey, I am
             
           </h2>
-          <h1 className="2xl:text-6xl lg:text-4xl md:text-7xl text-4xl font-semibold mb-6 leading-tight ">
+          <h1 className="2xl:text-6xl lg:text-4xl md:text-5xl  text-4xl font-semibold mb-6 leading-tight ">
             Omar Madkour
           </h1>
-          <div className="flex items-center justify-center">
-          <p className=" text-2xl font-bold">And I am a {" "}</p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center">
+          <p className="text-2xl font-bold">And I am a {" "}</p>
           <TextType 
             text={["Frontend Developer", "Web Developer", "Happy coding!"]}
-            className="font-merapro"
+            className="font-merapro sm:ml-2 mt-2 sm:mt-0"
             typingSpeed={75}
             pauseDuration={1500}
             showCursor={true}
