@@ -31,10 +31,8 @@ export default function Navbar (){
       textColor: "#fff",
       borderColor: "#ffa652",
       links: [
-        { label: "Email", ariaLabel: "Email us" ,href : "/ShowSkills"},
-        { label: "Facebook", ariaLabel: "Facebook",href : "/ShowSkills" },
-        { label: "Whatsapp", ariaLabel: "Whatsapp" ,href : "/ShowSkills"},
-        { label: "LinkedIn", ariaLabel: "LinkedIn" ,href : "/ShowSkills"}
+        { label: "Contact Me", ariaLabel: "Email us" ,href : "/ContactMe"},
+
       ]
     }
   ];
