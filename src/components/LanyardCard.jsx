@@ -6,9 +6,6 @@ import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 
-
-// replace with your own imports, see the usage snippet for details
-
 import * as THREE from 'three';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
@@ -59,6 +56,7 @@ export default function Lanyard({ position = [0, 0, 30], gravity = [0, -40, 0], 
     </div>
   );
 }
+
 function Band({ maxSpeed = 50, minSpeed = 0 }) {
   const band = useRef(),
     fixed = useRef(),
@@ -102,7 +100,6 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
     };
 
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -134,6 +131,22 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
     }
   });
 
+  // Handle touch events for mobile
+  const handlePointerDown = (e) => {
+    e.target.setPointerCapture(e.pointerId);
+    drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
+  };
+
+  const handlePointerUp = (e) => {
+    e.target.releasePointerCapture(e.pointerId);
+    drag(false);
+  };
+
+  const handlePointerMove = (e) => {
+    // This will be handled by the useFrame hook through state.pointer
+    e.stopPropagation();
+  };
+
   curve.curveType = 'chordal';
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
@@ -157,11 +170,44 @@ function Band({ maxSpeed = 50, minSpeed = 0 }) {
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
-            onPointerUp={e => (e.target.releasePointerCapture(e.pointerId), drag(false))}
-            onPointerDown={e => (
-              e.target.setPointerCapture(e.pointerId),
-              drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
-            )}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            onPointerMove={handlePointerMove}
+            // Additional touch events for better mobile support
+            onTouchStart={(e) => {
+              e.preventDefault();
+              const touch = e.touches[0];
+              const rect = e.target.getBoundingClientRect();
+              const x = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
+              const y = -((touch.clientY - rect.top) / rect.height) * 2 + 1;
+              
+              // Create a synthetic pointer event
+              const syntheticEvent = {
+                target: e.target,
+                pointerId: 1,
+                point: new THREE.Vector3(x, y, 0.5),
+                setPointerCapture: () => {},
+                preventDefault: () => {}
+              };
+              handlePointerDown(syntheticEvent);
+            }}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+              const syntheticEvent = {
+                target: e.target,
+                pointerId: 1,
+                releasePointerCapture: () => {}
+              };
+              handlePointerUp(syntheticEvent);
+            }}
+            onTouchMove={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+            style={{ 
+              touchAction: 'none', // Prevent default touch behaviors
+              userSelect: 'none'   // Prevent text selection
+            }}
           >
             <mesh geometry={nodes.card.geometry}>
               <meshPhysicalMaterial

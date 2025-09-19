@@ -101,7 +101,9 @@ export default function ContactPage() {
             </div>
             
             <div className="lg:flex-1 flex lg:-mt-40 -mt-32 items-center justify-center">
+              <div className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center touch-none select-none">
               <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} />
+              </div>
             </div>
           </motion.div>
 
