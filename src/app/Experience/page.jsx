@@ -1,9 +1,13 @@
-import Experience from "@/components/Experience";
+import dynamic from "next/dynamic";
 
-export default  function ExperiencePage() {
+const Experience = dynamic(() => import("@/components/Experience"), {
+  loading: () => <p>Loading experience...</p>, // Placeholder مؤقت
+});
+
+export default function ExperiencePage() {
   return (
     <div>
-      <Experience /> 
+      <Experience />
     </div>
   );
 }
