@@ -50,6 +50,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* ✅ Preconnect لأهم origins */}
+        <link rel="preconnect" href="https://omar-dev-portfolio.vercel.app" crossOrigin="" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="" />
+        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="" />
+
         {/* Preload custom font */}
         <link
           rel="preload"
