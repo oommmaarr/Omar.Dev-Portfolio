@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 // تحسين تحميل الـ fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,6 +75,7 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning={true}
       >
         <Navbar />
+        <SpeedInsights/>
         {children}
       </body>
     </html>
