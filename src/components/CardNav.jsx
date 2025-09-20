@@ -211,18 +211,20 @@ const CardNav = ({
             </Link>
 
             <div className="logo-container flex items-center text-white font-semibold text-xl md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-none">
-              <SplitText
-                text="Omar.Dev"
-                delay={100}
-                duration={0.6}
-                ease="power3.out"
-                splitType="chars"
-                from={{ opacity: 0, y: 40 }}
-                to={{ opacity: 1, y: 0 }}
-                threshold={0.1}
-                rootMargin="-100px"
-                textAlign="center"
-              />
+            <h1 className="sr-only">Omar.Dev</h1> 
+            <SplitText
+              text="Omar.Dev"
+              delay={100}
+              duration={0.6}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="center"
+            />
+
             </div>
           </div>
 

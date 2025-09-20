@@ -96,23 +96,27 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-            <motion.button 
-              className="bg-orange-600 hover:bg-orange-700 text-white transition-colors px-8 py-3 rounded-lg font-semibold cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={()=>router.push('/ContactMe')}
-            >
-            
-              Get In Touch
-            </motion.button>
-            <motion.button 
-              className="border-2 border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition-all px-8 py-3 rounded-lg font-semibold cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-             <a href="/Omar-Mohammed.pdf" download={true}> Download Resume</a>
-            </motion.button>
-          </div>
+          <motion.button
+            className="bg-orange-700 hover:bg-orange-800 text-white transition-colors px-8 py-3 rounded-lg font-semibold cursor-pointer min-h-[48px] min-w-[48px]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => router.push("/ContactMe")}
+          >
+            Get In Touch
+          </motion.button>
+
+
+          <motion.a
+            href="/Omar-Mohammed.pdf"
+            download={true}
+            className="inline-flex items-center justify-center border-2 border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition-all px-8 py-3 rounded-lg font-semibold cursor-pointer min-h-[48px] min-w-[48px]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Download Resume
+          </motion.a>
+        </div>
+
           <hr className="w-full lg:mt-5  mt-10 h-2 bg-white border-0 opacity-25 rounded" />
         </motion.div>
 
