@@ -129,12 +129,13 @@ export default function Hero() {
         >
           <div className="relative">
             <div className="flex items-center justify-center">
-              <Image
-                src={person}
-                alt="Omar - Web Developer"
-                className="lg:w-10/12  w-full h-auto z-20 relative "
-                priority
-              />
+            <Image
+              src={person}
+              alt="Omar - Web Developer"
+              className="lg:w-10/12 w-full h-auto z-20 relative "
+              priority
+              fetchPriority="high" 
+            />
               <div className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                 <motion.div 
                   className="absolute top-1/2 left-1/2 w-[750px] h-[750px] border-2 border-white rounded-full transform -translate-x-1/2 -translate-y-1 opacity-50"
