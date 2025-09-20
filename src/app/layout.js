@@ -1,28 +1,25 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import Script from "next/script";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 // تحسين تحميل الـ fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap",
-  preload: true,
+  display: 'swap', // مهم للـ performance
+  preload: true,   // تحميل مبكر
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display: "swap",
-  preload: false,
+  display: 'swap', // مهم للـ performance
+  preload: false,  // متحملوش إلا لو محتاجو
 });
 
 export const metadata = {
   title: "Omar.Dev Portfolio",
-  description:
-    "Full Stack Developer Portfolio - Omar Dev showcasing modern web development projects and skills",
+  description: "Full Stack Developer Portfolio - Omar Dev showcasing modern web development projects and skills",
   keywords: "Omar, Developer, Portfolio, React, Next.js, Full Stack",
   authors: [{ name: "Omar" }],
   creator: "Omar Dev",
@@ -53,41 +50,21 @@ export default function RootLayout({ children }) {
         {/* Preload critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-
-        <link
-          rel="preload"
-          href="/fonts/MeraPro-V4Oex.otf"
-          as="font"
-          type="font/otf"
+        
+        {/* Preload custom font - مهم جداً للـ performance */}
+        <link 
+          rel="preload" 
+          href="/fonts/MeraPro-V4Oex.otf" 
+          as="font" 
+          type="font/otf" 
           crossOrigin=""
         />
-
+        
+        {/* DNS prefetch للـ external resources */}
         <link rel="dns-prefetch" href="https://vercel.app" />
-
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, viewport-fit=cover"
-        />
-
-        {/* ✅ سكربت أساسي بعد الـ interactive */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'GA_TRACKING_ID');
-          `}
-        </Script>
-
-        {/* ✅ سكربتات ثانوية بتحميل lazy */}
-        <Script
-          src="https://example.com/chat-widget.js"
-          strategy="lazyOnload"
-        />
+        
+        {/* Viewport optimization */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
       <body
         className={`
@@ -98,10 +75,9 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning={true}
       >
         <Navbar />
-        <SpeedInsights />
+        <SpeedInsights/>
         {children}
       </body>
     </html>
   );
 }
-  
