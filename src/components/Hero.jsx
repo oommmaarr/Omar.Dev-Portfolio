@@ -5,8 +5,9 @@ import catching from "../../public/catch.svg";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import TextType from "@/components/TextType";
-
+import { useRouter } from "next/navigation";
 export default function Hero() {
+  const router = useRouter();
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Catching Elements - Right Side */}
@@ -99,7 +100,9 @@ export default function Hero() {
               className="bg-orange-600 hover:bg-orange-700 transition-colors px-8 py-3 rounded-lg font-semibold cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={()=>router.push('/ContactMe')}
             >
+            
               Get In Touch
             </motion.button>
             <motion.button 
@@ -107,7 +110,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Download Resume
+             <a href="/Omar-Mohammed.pdf" download={true}> Download Resume</a>
             </motion.button>
           </div>
           <hr className="w-full lg:mt-5  mt-10 h-2 bg-white border-0 opacity-25 rounded" />

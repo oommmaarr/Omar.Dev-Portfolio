@@ -9,8 +9,9 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 export default function Projects() {
+  const router = useRouter()
   const projects = [
     {
       id: 1,
@@ -439,7 +440,9 @@ export default function Projects() {
             Let's bring your ideas to life! Get in touch and let's discuss your
             next project.
           </p>
-          <button className="md:px-8 md:py-4 px-4 py-3 cursor-pointer mb-4 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105">
+          <button
+          onClick={()=>router.push('/ContactMe')} 
+          className="md:px-8 md:py-4 px-4 py-3 cursor-pointer mb-4 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105">
             Let's Work Together
           </button>
         </div>

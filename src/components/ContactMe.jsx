@@ -52,7 +52,7 @@ export default function ContactPage() {
     {
       icon: <Linkedin className="w-5 h-5" />,
       name: "LinkedIn",
-      url: "www.linkedin.com/in/omar-madkour-268a53253",
+      url: "https://www.linkedin.com/in/omar-madkour-268a53253",
       color: "hover:text-blue-400"
     },
     {
@@ -88,7 +88,7 @@ export default function ContactPage() {
           
           {/* Lanyard Component */}
           <motion.div
-            className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 lg:h-full h-9/12 flex flex-col"
+            className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 lg:h-full h-9/12 flex flex-col overflow-hidden"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -99,13 +99,14 @@ export default function ContactPage() {
               </div>
               <h2 className="lg:text-2xl text-xl font-bold text-white">My Card</h2>
             </div>
-            
-            <div className="lg:flex-1 flex lg:-mt-40 -mt-32 items-center justify-center">
-              <div className="relative z-0 w-full h-screen flex justify-center items-center transform scale-100 origin-center touch-none select-none">
-              <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} />
+
+            <div className="lg:flex-1 flex items-center justify-center">
+              <div className="relative z-0 w-full h-full flex justify-center items-center transform scale-100 origin-center touch-none select-none">
+                <Lanyard position={[0, 0, 25]} gravity={[0, -40, 0]} />
               </div>
             </div>
           </motion.div>
+
 
           {/* Contact Info & Social */}
           <motion.div

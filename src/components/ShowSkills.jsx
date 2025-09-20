@@ -15,6 +15,8 @@ import tailwind from "../../public/tailwind.png";
 import nodejs from "../../public/nodejs.png";
 import redux from "../../public/icons8-redux-24.png";
 import postman from "../../public/postman.svg";
+import framerMotion from '../../public/framer.png'
+import Jest from '../../public/Jest.svg'
 import Image from "next/image";
 
 export default function ShowSkills() {
@@ -34,6 +36,8 @@ export default function ShowSkills() {
     { name: "Node Js", icon: nodejs, color: "#F05032" },
     { name: "Redux", icon: redux, color: "#F05032" },
     { name: "Postman", icon: postman, color: "#F05032" },
+    { name: "Framer-Motion", icon: framerMotion, color: "#F05032" },
+    { name: "Jest", icon: Jest, color: "#F05032" },
   ];
 
   const containerVariants = {
