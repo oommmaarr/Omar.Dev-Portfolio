@@ -3,7 +3,7 @@ import { useLayoutEffect, useRef, useState, useEffect } from 'react';
 import { ArrowUpRight, Home } from 'lucide-react';
 import SplitText from '@/components/SplitText';
 import Link from 'next/link';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 const CardNav = ({
   logo,
@@ -24,12 +24,10 @@ const CardNav = ({
   const cardsRef = useRef([]);
   const tlRef = useRef(null);
 
-  // Update active link based on current pathname
   useEffect(() => {
     setActiveLink(pathname);
   }, [pathname]);
 
-  // Default navigation items with purple theme
   const defaultItems = [
     {
       label: 'الأعمال',
@@ -104,7 +102,6 @@ const CardNav = ({
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    // Simple animation without GSAP
     if (!isExpanded) {
       navEl.style.height = '60px';
       navEl.style.overflow = 'hidden';
@@ -152,7 +149,6 @@ const CardNav = ({
   useLayoutEffect(() => {
     const tl = createTimeline();
     tlRef.current = tl;
-
     return () => {
       tlRef.current = null;
     };
@@ -175,13 +171,11 @@ const CardNav = ({
 
   const handleLinkClick = (href) => {
     setActiveLink(href);
-    // Close menu after clicking a link
     if (isExpanded) {
       toggleMenu();
     }
   };
 
-  // Function to check if a link is active
   const isLinkActive = (href) => {
     if (href === '/' && pathname === '/') return true;
     if (href !== '/' && pathname === href) return true;
@@ -192,7 +186,7 @@ const CardNav = ({
     if (el) cardsRef.current[i] = el;
   };
 
-return (
+  return (
     <div
       className={`card-nav-container absolute left-1/2 -translate-x-1/2 w-[90%] max-w-[800px] z-[99] top-[1.2em] md:top-[2em] ${className}`}
     >
@@ -237,6 +231,7 @@ return (
             onClick={toggleMenu}
             role="button"
             aria-label={isExpanded ? 'إغلاق القائمة' : 'فتح القائمة'}
+            aria-expanded={isExpanded}   // ✅ هنا أضفنا aria-expanded
             tabIndex={0}
             style={{ color: menuColor }}
           >
@@ -257,7 +252,7 @@ return (
           className={`card-nav-content absolute left-0 right-0 top-[60px] bottom-0 p-2 flex flex-col items-stretch gap-2 justify-start z-[1] ${
             isExpanded ? 'visible pointer-events-auto' : 'invisible pointer-events-none'
           } md:flex-row md:items-end md:gap-[12px]`}
-          aria-hidden={!isExpanded}
+          hidden={!isExpanded}   // ✅ استخدمنا hidden بديل aria-hidden
         >
           {navigationItems.slice(0, 4).map((item, idx) => (
             <div
@@ -280,7 +275,7 @@ return (
                     aria-label={lnk.ariaLabel}
                     className={`nav-card-link inline-flex items-center gap-[6px] no-underline cursor-pointer transition-all duration-300 hover:translate-x-1 text-[15px] md:text-[16px] ${
                       isLinkActive(lnk.href) 
-                        ? 'opacity-100 font-semibold   text-orange-300  rounded-lg transform translate-x-1' 
+                        ? 'opacity-100 font-semibold text-orange-300 rounded-lg transform translate-x-1' 
                         : 'opacity-75 hover:opacity-100'
                     }`}
                     onClick={() => handleLinkClick(lnk.href)}

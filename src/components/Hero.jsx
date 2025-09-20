@@ -97,7 +97,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
             <motion.button 
-              className="bg-orange-600 hover:bg-orange-700 transition-colors px-8 py-3 rounded-lg font-semibold cursor-pointer"
+              className="bg-orange-600 hover:bg-orange-700 text-white transition-colors px-8 py-3 rounded-lg font-semibold cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={()=>router.push('/ContactMe')}
@@ -106,7 +106,7 @@ export default function Hero() {
               Get In Touch
             </motion.button>
             <motion.button 
-              className="border-2 border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-black transition-all px-8 py-3 rounded-lg font-semibold cursor-pointer"
+              className="border-2 border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition-all px-8 py-3 rounded-lg font-semibold cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
