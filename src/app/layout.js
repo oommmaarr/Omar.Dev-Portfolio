@@ -50,12 +50,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Preconnect لأهم origins */}
-        <link rel="preconnect" href="https://omar-dev-portfolio.vercel.app" crossOrigin="" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="" />
-        <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="" />
+        {/* Preload critical resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
 
-        {/* Preload custom font */}
         <link
           rel="preload"
           href="/fonts/MeraPro-V4Oex.otf"
@@ -64,10 +62,8 @@ export default function RootLayout({ children }) {
           crossOrigin=""
         />
 
-        {/* DNS prefetch */}
         <link rel="dns-prefetch" href="https://vercel.app" />
 
-        {/* Viewport optimization */}
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -108,3 +104,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+  
