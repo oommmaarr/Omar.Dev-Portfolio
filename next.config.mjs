@@ -9,8 +9,6 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['tw-animate-css'],
-    legacyBrowsers: false,
-    browsersListForSwc: true,
   },
   images: {
     formats: ['image/webp', 'image/avif'],
@@ -21,7 +19,7 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  swcMinify: true,
+
 };
 
 export default withAnalyzer(nextConfig);
