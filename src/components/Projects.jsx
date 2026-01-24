@@ -11,10 +11,32 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 export default function Projects() {
-  const router = useRouter()
+  const router = useRouter();
   const projects = [
     {
       id: 1,
+      title: "COCKTAIL CAFE",
+      description:
+        "A modern and responsive Juice Café website built using React, Vite, JavaScript, and Tailwind CSS. The project features a clean and visually appealing design, interactive UI components, and smooth navigation, showcasing a real-world front-end development workflow. It highlights the ability to integrate dynamic content, responsive layouts, and modern web technologies to create an engaging user experience.",
+      image: "/CAFE.png",
+      technologies: ["React.js", "Tailwind CSS", "GSAP", "Vercel"],
+      liveUrl: "https://gsap-project-mu-black.vercel.app/",
+      githubUrl: "https://github.com/oommmaarr/Gsap-Project",
+      featured: true,
+    },
+    {
+      id: 2,
+      title: "Clean-Up E-commerce",
+      description:
+        "A corporate website for a Saudi cleaning services company, developed using React, Vite, JavaScript, and Tailwind CSS. The site showcases the company’s offered services, previous projects, and contact methods through a clean and user-friendly interface. Designed to provide an informative and engaging experience for clients, it highlights responsive design, organized content, and interactive features for better usability.",
+      image: "/CLEANUP.png",
+      technologies: ["Next.js", "Tailwind CSS", "Framer Motion" , "Vercel"],
+      liveUrl: "https://clean-up-kappa.vercel.app/",
+      githubUrl: "https://github.com/oommmaarr/Clean-Up",
+      featured: true,
+    },
+    {
+      id: 3,
       title: "A-Syndrome Platform",
       description:
         "Developed a responsive React platform for medical students featuring light/dark mode, and dedicated pages for courses and books. The admin dashboard provides analytics and full management of users, books, and courses, seamlessly integrated with a RESTful API backend.",
@@ -25,7 +47,7 @@ export default function Projects() {
       featured: true,
     },
     {
-      id: 2,
+      id: 4,
       title: "E-commerce Store",
       description:
         "This site is considered one of the most powerful sites for the commercial sale of clothes, as it contains a display window for clothes and is available for logging in with a specific number of subscribers to the site. There is a window to complete the purchase process. The site also supports response on the phone and PC.",
@@ -300,15 +322,15 @@ export default function Projects() {
                       {project.title}
                     </h3>
                     <div className="flex gap-2">
-                      <a 
-                        href={project.liveUrl} 
+                      <a
+                        href={project.liveUrl}
                         target="_blank"
                         className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
                       >
-                        <Eye  className="text-white lg:w-5 lg:h-5  md:w-4 md:h-4 w-3 h-3"/>
+                        <Eye className="text-white lg:w-5 lg:h-5  md:w-4 md:h-4 w-3 h-3" />
                       </a>
-                      <a 
-                        href={project.githubUrl} 
+                      <a
+                        href={project.githubUrl}
                         target="_blank"
                         className="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
                       >
@@ -328,7 +350,7 @@ export default function Projects() {
                       <span
                         key={tech}
                         className={`px-3 py-1 rounded-full md:text-[10px] text-[8px] font-medium ${getTechColor(
-                          tech
+                          tech,
                         )}`}
                       >
                         {tech}
@@ -372,19 +394,19 @@ export default function Projects() {
                       {project.title}
                     </h3>
                     <div className="flex items-center gap-2">
-                      <a 
-                        href={project.liveUrl} 
+                      <a
+                        href={project.liveUrl}
                         target="_blank"
                         className="p-1.5 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
                       >
-                        <Eye  className="text-white xl:w-5 xl:h-5 lg:w-3 lg:h-3 md:w-5 md:h-5 w-3 h-3" />
+                        <Eye className="text-white xl:w-5 xl:h-5 lg:w-3 lg:h-3 md:w-5 md:h-5 w-3 h-3" />
                       </a>
-                      <a 
-                        href={project.githubUrl} 
+                      <a
+                        href={project.githubUrl}
                         target="_blank"
                         className="p-1.5 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
                       >
-                        <Github  className="text-white xl:w-5 xl:h-5 lg:w-3 lg:h-3 md:w-4 md:h-4 w-3 h-3" />
+                        <Github className="text-white xl:w-5 xl:h-5 lg:w-3 lg:h-3 md:w-4 md:h-4 w-3 h-3" />
                       </a>
                     </div>
                   </div>
@@ -401,7 +423,7 @@ export default function Projects() {
                       <span
                         key={tech}
                         className={`px-2 py-1 rounded-full md:text-[10px] text-[8px] font-medium ${getTechColor(
-                          tech
+                          tech,
                         )}`}
                       >
                         {tech}
@@ -441,8 +463,9 @@ export default function Projects() {
             next project.
           </p>
           <button
-          onClick={()=>router.push('/ContactMe')} 
-          className="md:px-8 md:py-4 px-4 py-3 cursor-pointer mb-4 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105">
+            onClick={() => router.push("/ContactMe")}
+            className="md:px-8 md:py-4 px-4 py-3 cursor-pointer mb-4 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105"
+          >
             Let's Work Together
           </button>
         </div>

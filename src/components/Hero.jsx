@@ -107,7 +107,7 @@ export default function Hero() {
 
 
           <motion.a
-            href="/Omar-Mohammed.pdf"
+            href="/Omar-Mohammed-CV.pdf"
             download={true}
             className="inline-flex items-center justify-center border-2 border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition-all px-8 py-3 rounded-lg font-semibold cursor-pointer min-h-[48px] min-w-[48px]"
             whileHover={{ scale: 1.05 }}
