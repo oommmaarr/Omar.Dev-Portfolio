@@ -83,7 +83,7 @@ export default function Hero() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-center">
           <p className="text-2xl font-bold">And I am a {" "}</p>
           <TextType 
-            text={["Frontend Developer", "Web Developer", "Happy coding!"]}
+            text={["FullStack Developer", "Web Developer", "Happy coding!"]}
             className="font-merapro sm:ml-2 mt-2 sm:mt-0"
             typingSpeed={75}
             pauseDuration={1500}
@@ -107,7 +107,7 @@ export default function Hero() {
 
 
           <motion.a
-            href="/Omar-Mohammed-CV.pdf"
+            href="/Omar_Mohammed.pdf"
             download={true}
             className="inline-flex items-center justify-center border-2 border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition-all px-8 py-3 rounded-lg font-semibold cursor-pointer min-h-[48px] min-w-[48px]"
             whileHover={{ scale: 1.05 }}
